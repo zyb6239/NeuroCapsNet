@@ -62,7 +62,7 @@ for test_sub in range(20):
 
     model = create_model(sample_len=sample_len, channels_num=channels_num, lr=lr)
     early_stopping = EarlyStopping(monitor='loss', patience=6, restore_best_weights=True)
-    model_checkpoint = ModelCheckpoint(f'./checkpoint/Sub{test_sub+1}_{model_name}.h5', monitor='loss', save_best_only=True,save_weights_only=True)
+    model_checkpoint = ModelCheckpoint(f'./checkpoint/Sub{test_sub+1}_{model_name}.ckpt', monitor='loss', save_best_only=True,save_weights_only=True)
     model.fit(train_datas,train_labels, epochs=epochs, batch_size=batch_size, shuffle=True, callbacks=[early_stopping, model_checkpoint])
 
     ft_trs = [0, 2, 4, 7, 9, 11, 12, 15, 17,19]
